@@ -1,0 +1,7 @@
+echo "# takumi.github.io" >> README.md
+git init
+git add README.md
+git commit -m "最初のコミット"
+git ブランチ -M メイン
+git リモートでオリジンを追加 https://github.com/5zhjmrdbjv-sketch/takumi.github.io.git
+git push -u origin main
