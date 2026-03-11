@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <title>Takumi's Website</title>
@@ -7,32 +7,55 @@
 <style>
 body{
     margin:0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(120deg,#4facfe,#00f2fe);
+    font-family:Arial, sans-serif;
+    background: linear-gradient(120deg,#1e3c72,#2a5298);
     color:white;
     text-align:center;
 }
 
-.container{
-    margin-top:150px;
+header{
+    padding:120px 20px;
 }
 
 h1{
-    font-size:50px;
+    font-size:60px;
+    margin:0;
 }
 
 p{
-    font-size:20px;
+    font-size:22px;
 }
 
 button{
-    padding:12px 25px;
-    font-size:16px;
+    margin-top:30px;
+    padding:15px 35px;
+    font-size:18px;
     border:none;
-    border-radius:20px;
+    border-radius:30px;
+    background:white;
+    color:#2a5298;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+section{
+    padding:80px 20px;
     background:white;
     color:#333;
-    cursor:pointer;
+}
+
+.card{
+    display:inline-block;
+    background:#f4f4f4;
+    padding:30px;
+    margin:20px;
+    border-radius:15px;
+    width:250px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 </style>
 
@@ -40,16 +63,31 @@ button{
 
 <body>
 
-<div class="container">
+<header>
 <h1>Takumi's Website</h1>
-
 <p>Welcome to my homepage</p>
+<button onclick="alert('Hello!')">Click</button>
+</header>
 
-<button onclick="alert('ありがとう！')">
-Click
-</button>
+<section>
+<h2>About Me</h2>
 
+<div class="card">
+<h3>Profile</h3>
+<p>Student / Developer</p>
 </div>
+
+<div class="card">
+<h3>Skills</h3>
+<p>HTML / CSS / JavaScript</p>
+</div>
+
+<div class="card">
+<h3>Projects</h3>
+<p>My Web Creations</p>
+</div>
+
+</section>
 
 </body>
 </html>
