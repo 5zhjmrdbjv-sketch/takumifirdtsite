@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Takumi Portfolio</title>
 
 <style>
@@ -16,8 +15,13 @@ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 
 body{
-background:#f5f5f7;
 color:#1d1d1f;
+background:
+radial-gradient(circle at 20% 30%,#c7d2ff,transparent 40%),
+radial-gradient(circle at 80% 40%,#ffd6e7,transparent 40%),
+radial-gradient(circle at 50% 80%,#d0f0ff,transparent 40%),
+#f5f5f7;
+background-attachment:fixed;
 line-height:1.6;
 }
 
@@ -31,14 +35,14 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:18px 80px;
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(20px);
 transition:0.3s;
 z-index:1000;
 }
 
 nav a{
-margin-left:25px;
+margin-left:30px;
 text-decoration:none;
 color:#1d1d1f;
 font-weight:500;
@@ -53,56 +57,38 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:0 20px;
+padding:20px;
 }
 
 .hero h1{
-font-size:64px;
+font-size:70px;
 font-weight:700;
 letter-spacing:-1px;
-margin-bottom:10px;
 }
 
 .hero p{
-font-size:22px;
+font-size:24px;
 color:#6e6e73;
+margin-top:10px;
 margin-bottom:30px;
 }
 
 .hero button{
-padding:14px 32px;
-border:none;
+padding:16px 36px;
 border-radius:999px;
-background:#0071e3;
-color:white;
+border:none;
 font-size:16px;
+background:linear-gradient(135deg,#0071e3,#42a1ff);
+color:white;
 cursor:pointer;
-transition:0.3s;
+transition:0.4s;
+box-shadow:0 8px 20px rgba(0,113,227,0.3);
 }
 
 .hero button:hover{
-transform:scale(1.05);
-}
-.hero button{
-position:relative;
-overflow:hidden;
+transform:scale(1.08);
 }
 
-.hero button::after{
-content:"";
-position:absolute;
-width:0;
-height:0;
-background:rgba(255,255,255,.4);
-border-radius:50%;
-transform:translate(-50%,-50%);
-transition:width .6s,height .6s;
-}
-
-.hero button:active::after{
-width:300px;
-height:300px;
-}
 /* SECTIONS */
 
 section{
@@ -116,7 +102,7 @@ font-size:36px;
 margin-bottom:40px;
 }
 
-/* CARDS */
+/* GRID */
 
 .grid{
 display:grid;
@@ -124,25 +110,29 @@ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
 }
 
+/* CARDS */
+
 .card{
-background:white;
-border-radius:20px;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(20px);
+border-radius:24px;
 padding:30px;
-box-shadow:0 10px 25px rgba(0,0,0,0.06);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
 transition:0.4s;
 overflow:hidden;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px) scale(1.02);
 }
 
 .project-img{
 width:100%;
 height:180px;
-border-radius:14px;
+border-radius:16px;
 margin-bottom:20px;
-background:#e8e8ed;
+background-size:cover;
+background-position:center;
 transition:0.5s;
 }
 
@@ -170,7 +160,7 @@ padding:40px;
 color:#6e6e73;
 }
 
-/* SCROLL ANIMATION */
+/* FADE ANIMATION */
 
 .fade{
 opacity:0;
@@ -182,6 +172,9 @@ transition:1s;
 opacity:1;
 transform:translateY(0);
 }
+
+/* DARK MODE */
+
 body.dark{
 background:#000;
 color:#f5f5f7;
@@ -193,23 +186,16 @@ background:rgba(0,0,0,0.7);
 
 body.dark .card{
 background:#1d1d1f;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-body.dark a{
-color:#2997ff;
-}
-
-body.dark .hero p{
-color:#a1a1a6;
-}
+/* THEME BUTTON */
 
 .theme-toggle{
 position:fixed;
 bottom:30px;
 right:30px;
-width:48px;
-height:48px;
+width:50px;
+height:50px;
 border-radius:50%;
 border:none;
 background:#1d1d1f;
@@ -218,13 +204,13 @@ font-size:20px;
 cursor:pointer;
 box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
+
 </style>
 </head>
 
 <body>
 
 <nav>
-
 <div><strong>Takumi</strong></div>
 
 <div>
@@ -232,7 +218,6 @@ box-shadow:0 5px 15px rgba(0,0,0,0.2);
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </div>
-
 </nav>
 
 <!-- HERO -->
@@ -279,6 +264,13 @@ HTML / CSS / JavaScript / GitHub
 </section>
 
 <!-- PROJECTS -->
+
+<section id="projects" class="fade">
+
+<h2>Projects</h2>
+
+<div class="grid">
+
 <div class="card">
 
 <div class="project-img"
@@ -306,6 +298,11 @@ More projects coming soon.
 </p>
 
 </div>
+
+</div>
+
+</section>
+
 <!-- CONTACT -->
 
 <section id="contact" class="contact fade">
@@ -326,52 +323,30 @@ takumi_matura@icloud.com
 
 </footer>
 
+<button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
 <script>
 
 function scrollAbout(){
-
-document.querySelector("#about")
-.scrollIntoView({behavior:"smooth"})
-
+document.querySelector("#about").scrollIntoView({behavior:"smooth"});
 }
+
+/* fade animation */
 
 const observer=new IntersectionObserver(entries=>{
-
 entries.forEach(entry=>{
-
 if(entry.isIntersecting){
-
-entry.target.classList.add("show")
-
+entry.target.classList.add("show");
 }
-
-})
-
-})
+});
+});
 
 document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el);
+});
 
-observer.observe(el)
+/* navbar scroll */
 
-})
-
-window.addEventListener("scroll",()=>{
-
-const nav=document.querySelector("nav")
-
-if(window.scrollY>50){
-
-nav.style.padding="12px 80px"
-nav.style.background="rgba(255,255,255,0.9)"
-
-}else{
-
-nav.style.padding="18px 80px"
-nav.style.background="rgba(255,255,255,0.7)"
-
-}
-
-})
 window.addEventListener("scroll",()=>{
 const nav=document.querySelector("nav");
 
@@ -380,25 +355,27 @@ nav.style.padding="12px 80px";
 nav.style.background="rgba(255,255,255,0.9)";
 }else{
 nav.style.padding="18px 80px";
-nav.style.background="rgba(255,255,255,0.7)";
+nav.style.background="rgba(255,255,255,0.6)";
 }
 });
 
-document.addEventListener("mousemove",(e)=>{
-document.querySelectorAll(".project-img").forEach(img=>{
-const x=(window.innerWidth/2-e.pageX)/40;
-const y=(window.innerHeight/2-e.pageY)/40;
-
-img.style.transform=`translate(${x}px,${y}px)`;
-});
-});
+/* dark mode */
 
 function toggleTheme(){
-document.body.classList.toggle("dark")
+document.body.classList.toggle("dark");
 }
+
+/* parallax background */
+
+window.addEventListener("scroll",()=>{
+const scroll=window.scrollY;
+document.body.style.backgroundPosition=
+`0px ${scroll*0.2}px,
+0px ${scroll*0.1}px,
+0px ${scroll*0.05}px`;
+});
+
 </script>
-<button class="theme-toggle" onclick="toggleTheme()">
-🌙
-</button>
+
 </body>
 </html>
