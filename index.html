@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Takumi</title>
+<title>Takumi Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -17,9 +17,25 @@ font-family:"Inter",sans-serif;
 scroll-behavior:smooth;
 }
 
+:root{
+--bg:#f5f5f7;
+--text:#1d1d1f;
+--sub:#6e6e73;
+--card:#ffffff;
+--accent:#0071e3;
+}
+
+body.dark{
+--bg:#000;
+--text:#f5f5f7;
+--sub:#aaa;
+--card:#111;
+}
+
 body{
-background:#f5f5f7;
-color:#1d1d1f;
+background:var(--bg);
+color:var(--text);
+transition:.3s;
 }
 
 /* NAVBAR */
@@ -37,9 +53,8 @@ backdrop-filter:blur(20px);
 z-index:1000;
 }
 
-nav h1{
-font-size:20px;
-font-weight:600;
+body.dark nav{
+background:rgba(0,0,0,0.7);
 }
 
 nav ul{
@@ -50,13 +65,8 @@ list-style:none;
 
 nav a{
 text-decoration:none;
-color:#1d1d1f;
-font-weight:400;
-transition:0.2s;
-}
-
-nav a:hover{
-opacity:0.6;
+color:var(--text);
+font-weight:500;
 }
 
 /* HERO */
@@ -68,109 +78,99 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
-background:linear-gradient(180deg,#ffffff,#f5f5f7);
+
+background:
+linear-gradient(180deg,rgba(255,255,255,.2),rgba(0,0,0,.2)),
+url("https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=2000") center/cover;
+
+color:white;
 }
 
-.hero h2{
-font-size:72px;
-font-weight:600;
-letter-spacing:-1px;
+.hero h1{
+font-size:80px;
+letter-spacing:-2px;
 margin-bottom:20px;
 }
 
 .hero p{
-font-size:24px;
-color:#6e6e73;
+font-size:26px;
 margin-bottom:40px;
 }
 
 .hero button{
-padding:16px 34px;
+padding:18px 36px;
 border:none;
 border-radius:40px;
-background:#0071e3;
+background:var(--accent);
 color:white;
 font-size:16px;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
 }
 
 .hero button:hover{
-background:#005ecb;
 transform:scale(1.05);
 }
 
 /* SECTIONS */
 
 section{
-padding:140px 80px;
+padding:160px 80px;
 text-align:center;
 }
 
-section h3{
-font-size:44px;
-margin-bottom:60px;
+section h2{
+font-size:48px;
+margin-bottom:70px;
 }
 
 /* CARDS */
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:40px;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 }
 
 .card{
-background:white;
-padding:50px 40px;
-border-radius:24px;
-box-shadow:0 20px 40px rgba(0,0,0,0.05);
-transition:0.4s;
-}
-
-.card h4{
-margin-bottom:10px;
-font-size:22px;
-}
-
-.card p{
-color:#6e6e73;
+background:var(--card);
+padding:50px;
+border-radius:28px;
+box-shadow:0 25px 60px rgba(0,0,0,.08);
+transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 30px 60px rgba(0,0,0,0.08);
+transform:translateY(-12px);
 }
-
-/* PROJECT IMAGE */
 
 .project-img{
 width:100%;
-height:160px;
-background:linear-gradient(135deg,#e5e5ea,#f2f2f7);
-border-radius:16px;
+height:180px;
+border-radius:18px;
 margin-bottom:20px;
+background-size:cover;
+background-position:center;
 }
 
 /* CONTACT */
 
 .contact{
-font-size:20px;
-color:#6e6e73;
+font-size:22px;
+color:var(--sub);
 }
 
 /* FOOTER */
 
 footer{
-padding:60px;
+padding:70px;
 text-align:center;
-color:#86868b;
+color:var(--sub);
 }
 
-/* ANIMATION */
+/* FADE ANIMATION */
 
 .fade{
 opacity:0;
@@ -183,20 +183,34 @@ opacity:1;
 transform:translateY(0);
 }
 
+/* THEME BUTTON */
+
+.theme-btn{
+position:fixed;
+bottom:30px;
+right:30px;
+border:none;
+padding:15px;
+border-radius:50%;
+background:var(--card);
+cursor:pointer;
+box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
 /* MOBILE */
 
 @media(max-width:800px){
 
 nav{
-padding:16px 30px;
+padding:18px 30px;
 }
 
 section{
-padding:120px 30px;
+padding:140px 30px;
 }
 
-.hero h2{
-font-size:48px;
+.hero h1{
+font-size:52px;
 }
 
 }
@@ -208,7 +222,7 @@ font-size:48px;
 
 <nav>
 
-<h1>Takumi</h1>
+<h2>Takumi</h2>
 
 <ul>
 <li><a href="#about">About</a></li>
@@ -222,11 +236,11 @@ font-size:48px;
 
 <div class="hero">
 
-<h2>Takumi</h2>
+<h1>Takumi</h1>
 
 <p>Student / Developer</p>
 
-<button onclick="scrollToSection()">Learn More</button>
+<button onclick="scrollAbout()">Learn More</button>
 
 </div>
 
@@ -234,28 +248,18 @@ font-size:48px;
 
 <section id="about" class="fade">
 
-<h3>About Me</h3>
+<h2>About</h2>
 
 <div class="cards">
 
 <div class="card">
-
-<h4>Profile</h4>
-
-<p>
-Student developer interested in building modern web experiences.
-</p>
-
+<h3>👨‍💻 Profile</h3>
+<p>Student developer interested in building modern web experiences.</p>
 </div>
 
 <div class="card">
-
-<h4>Skills</h4>
-
-<p>
-HTML / CSS / JavaScript
-</p>
-
+<h3>⚙️ Skills</h3>
+<p>HTML / CSS / JavaScript / GitHub</p>
 </div>
 
 </div>
@@ -266,25 +270,25 @@ HTML / CSS / JavaScript
 
 <section id="projects" class="fade">
 
-<h3>Projects</h3>
+<h2>Projects</h2>
 
 <div class="cards">
 
 <div class="card">
 
-<div class="project-img"></div>
+<div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2000')"></div>
 
-<h4>Portfolio Website</h4>
+<h3>Portfolio Website</h3>
 
-<p>My personal website hosted on GitHub Pages.</p>
+<p>Personal website built with HTML and hosted on GitHub Pages.</p>
 
 </div>
 
 <div class="card">
 
-<div class="project-img"></div>
+<div class="project-img" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000')"></div>
 
-<h4>Future Project</h4>
+<h3>Future Project</h3>
 
 <p>More projects coming soon.</p>
 
@@ -298,7 +302,7 @@ HTML / CSS / JavaScript
 
 <section id="contact" class="fade">
 
-<h3>Contact</h3>
+<h2>Contact</h2>
 
 <p class="contact">takumi@email.com</p>
 
@@ -310,9 +314,11 @@ HTML / CSS / JavaScript
 
 </footer>
 
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
 <script>
 
-function scrollToSection(){
+function scrollAbout(){
 document.querySelector("#about").scrollIntoView({behavior:"smooth"});
 }
 
@@ -327,6 +333,10 @@ entry.target.classList.add("show");
 document.querySelectorAll(".fade").forEach(el=>{
 observer.observe(el);
 });
+
+function toggleTheme(){
+document.body.classList.toggle("dark");
+}
 
 </script>
 
